@@ -113,3 +113,5 @@ $(document).on("click", ".indGif", gifState);
 
 renderButtons();
 
+
+console.log("maybe")
