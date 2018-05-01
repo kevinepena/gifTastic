@@ -80,10 +80,10 @@
                           console.log(results)
                           
    
-                              var img = results[0].thumbnail.path
-                              var output = "<img src='" + img + "'><br>";
+                        //       var img = results[0].thumbnail.path
+                        //       var output = "<img src='" + img + "'><br>";
 
-                          $('#api-view').append(output);
+                        //   $('#api-view').append(output);
                       });
                        
                     });
@@ -109,5 +109,5 @@
 
             renderButtons();
 
-            console.log("maybe now")
+            console.log("maybe not")
 
