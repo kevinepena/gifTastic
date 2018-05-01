@@ -80,7 +80,7 @@
                           console.log(results)
                           
    
-                              var img = results.thumbnail.path
+                              var img = results[0].thumbnail.path
                               var output = "<img src='" + img + "'><br>";
 
                           $('#api-view').append(output);
@@ -109,5 +109,5 @@
 
             renderButtons();
 
-            console.log("yay")
+            console.log("maybe now")
 
