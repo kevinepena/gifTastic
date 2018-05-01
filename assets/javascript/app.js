@@ -33,7 +33,7 @@
 
             function displayGifs() {
                 var hero = $(this).attr("data-name");
-                console.log(hero)
+
                 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
                     hero + "&api_key=dc6zaTOxFJmzC&limit=10";
 
@@ -110,6 +110,4 @@
             $(document).on("click", ".indGif", gifState);
 
             renderButtons();
-
-            console.log('33yay')
 
