@@ -80,7 +80,8 @@
                           console.log(response)
                           console.log(results)
 
-                              var imgPath = results[i].images[0].path + '/standard_xlarge.' + results[i].images[0].extension;
+                              var imgPath = results[0].thumbnail.path + '/standard_xlarge.' + results[0].thumbnail.extension;
+                              console.log(imgPath)
                               output += '<li><img src="' + imgPath + '"><br>'+results[i].title+'</li>';
                                                     
                           output += '</ul>'
@@ -110,5 +111,5 @@
 
             renderButtons();
 
-            console.log('22yay')
+            console.log('33yay')
 
