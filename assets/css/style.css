@@ -1,0 +1,17 @@
+button,
+div,
+form,
+input {
+    margin: 10px;
+}
+
+#backImg {
+    margin: 0 auto;
+    width: 100%;
+    height: 20%;
+    display: inline-block;
+}
+
+header {
+    margin: 20px;
+}

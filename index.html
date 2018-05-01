@@ -2,126 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Favorite gifs</title>
-    <style type="text/css">
-        button,
-        div,
-        form,
-        input {
-            margin: 10px;
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 
 <body>
-
+<header>
+    <img src="assets/images/marvelLogo.jpg" alt="marvel" id="backImg">
+</header>
     <div class="container">
         <h1>Gif Search</h1>
 
         <form id="gifs-form">
-            <label for="gifs-input">Add a Gif</label>
+            <label for="gifs-input">Add a Gif: </label>
             <input type="text" id="gifs-input">
             <br>
-            <input id="add-gif" type="submit" value="Add a Gif">
+            <input id="add-gif" type="submit" value="add a Gif">
         </form>
 
         <div id="buttons-view"></div>
         <div id="gif-view"></div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript">
-
-
-            // Initial array of gifs
-            var gifs = ["donkey", "horse", "duck", "lion"];
-
-            function renderButtons() {
-
-                $("#buttons-view").empty();
-
-                // Looping through the array of gifs
-                for (var i = 0; i < gifs.length; i++) {
-
-                    var a = $("<button>");
-
-                    a.addClass("gif");
-
-                    a.attr("data-name", gifs[i]);
-
-                    a.text(gifs[i]);
-
-                    $("#buttons-view").append(a);
-                }
-            }
-
-            $("#add-gif").on("click", function (event) {
-
-                event.preventDefault();
-
-                var gif = $("#gifs-input").val().trim();
-
-                gifs.push(gif);
-
-                renderButtons();
-            });
-
-            function displayGifs() {
-                var animal = $(this).attr("data-name");
-                console.log(animal)
-                var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-                    animal + "&api_key=dc6zaTOxFJmzC&limit=10";
-
-                $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                }).then(function (response) {
-
-                    var results = response.data;
-
-                    for (var i = 0; i < results.length; i++) {
-
-                        var animalDiv = $("<div class='item'>");
-                        var rating = results[i].rating;
-                        var p = $("<p>").text(rating);
-                        var animalImage = $("<img>");
-
-
-                        animalImage.attr("src", results[i].images.fixed_height_still.url);
-                        animalImage.attr("data-animate", results[i].images.fixed_height.url);
-                        animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-                        animalImage.attr("data-state", "still");
-                        animalImage.attr("class", "indGif");
-                        animalDiv.append(p);
-                        animalDiv.append(animalImage);
-                        $("#gif-view").prepend(animalDiv);
-
-                    }
-
-                });
-            };
-
-            function gifState() {
-
-                var state = $(this).attr("data-state");
-
-                if (state === "still") {
-                    $(this).attr("src", $(this).attr("data-animate"));
-                    $(this).attr("data-state", "animate");
-                } else {
-                    $(this).attr("src", $(this).attr("data-still"));
-                    $(this).attr("data-state", "still");
-                }
-            };
-
-            $(document).on("click", ".gif", displayGifs);
-            $(document).on("click", ".indGif", gifState);
-
-            renderButtons();
-
-
-        </script>
     </div>
+    
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
 
 </html>
