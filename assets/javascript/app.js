@@ -75,14 +75,13 @@
                       })
                         .done(function( response ) {
                           var results = response.data.results;
-                          var output = '<ul>'; 
             
                           console.log(response)
                           console.log(results)
                           
    
                               var img = results.thumbnail.path
-                              output += "<li><img src='" + img + "'><br>";
+                              var output = "<img src='" + img + "'><br>";
 
                           $('#api-view').append(output);
                       });
