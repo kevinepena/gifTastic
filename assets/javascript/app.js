@@ -57,8 +57,8 @@
                         heroImage.attr("data-still", results[i].images.fixed_height_still.url);
                         heroImage.attr("data-state", "still");
                         heroImage.attr("class", "indGif");
-                        heroDiv.append(p);
                         heroDiv.append(heroImage);
+                        heroDiv.append(p);
                         $("#gif-view").prepend(heroDiv);
 
                     }
