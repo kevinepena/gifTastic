@@ -80,14 +80,11 @@
                           console.log(response)
                           console.log(results)
                           
-                          for(var i=0; i<resultsLen; i++){
-                            if(results[i].images.length > 0) {
-                              var imgPath = results[i].images[0].path + '/standard_xlarge.' + results[i].images[0].extension;
-                              output += '<li><img src="' + imgPath + '"><br>'+results[i].title+'</li>';
-                            }
-                          }  
-                          output += '</ul>'
-                          $('#results').append(output);
+   
+                              var img = results.thumbnail.path
+                              output += "<li><img src='" + img + "'><br>";
+
+                          $('#api-view').append(output);
                       });
                        
                     });
