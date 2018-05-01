@@ -32,10 +32,10 @@
             });
 
             function displayGifs() {
-                var animal = $(this).attr("data-name");
-                console.log(animal)
+                var hero = $(this).attr("data-name");
+                console.log(hero)
                 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-                    animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+                    hero + "&api_key=dc6zaTOxFJmzC&limit=10";
 
                 $.ajax({
                     url: queryURL,
@@ -46,24 +46,52 @@
 
                     for (var i = 0; i < results.length; i++) {
 
-                        var animalDiv = $("<div class='item'>");
+                        var heroDiv = $("<div class='item'>");
                         var rating = results[i].rating;
                         var p = $("<p>").text(rating);
-                        var animalImage = $("<img>");
+                        var heroImage = $("<img>");
 
 
-                        animalImage.attr("src", results[i].images.fixed_height_still.url);
-                        animalImage.attr("data-animate", results[i].images.fixed_height.url);
-                        animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-                        animalImage.attr("data-state", "still");
-                        animalImage.attr("class", "indGif");
-                        animalDiv.append(p);
-                        animalDiv.append(animalImage);
-                        $("#gif-view").prepend(animalDiv);
+                        heroImage.attr("src", results[i].images.fixed_height_still.url);
+                        heroImage.attr("data-animate", results[i].images.fixed_height.url);
+                        heroImage.attr("data-still", results[i].images.fixed_height_still.url);
+                        heroImage.attr("data-state", "still");
+                        heroImage.attr("class", "indGif");
+                        heroDiv.append(p);
+                        heroDiv.append(heroImage);
+                        $("#gif-view").prepend(heroDiv);
 
                     }
 
                 });
+
+                //-------------------------------------------
+                
+                $(function(){
+                    var marvelAPI = 'https://gateway.marvel.com/v1/public/characters?name=' + hero;
+                    $.getJSON( marvelAPI, {
+                        apikey: 'e8497bc6cb044233eb5ed6b04299d47e'
+                      })
+                        .done(function( response ) {
+                          var results = response.data.results;
+                          var output = '<ul>'; 
+            
+                          console.log(response)
+                          console.log(results)
+                          
+                          for(var i=0; i<resultsLen; i++){
+                            if(results[i].images.length > 0) {
+                              var imgPath = results[i].images[0].path + '/standard_xlarge.' + results[i].images[0].extension;
+                              output += '<li><img src="' + imgPath + '"><br>'+results[i].title+'</li>';
+                            }
+                          }  
+                          output += '</ul>'
+                          $('#results').append(output);
+                      });
+                       
+                    });
+
+                    //--------------------------------------------
             };
 
             function gifState() {
@@ -84,38 +112,5 @@
 
             renderButtons();
 
-    // var queryURL = "https://gateway.marvel.com:443/v1/public/characters?name=thor&orderBy=name&limit=1&apikey=e8497bc6cb044233eb5ed6b04299d47e";
+            
 
-    // $.ajax({
-    //   url: queryURL,
-    //   method: "GET"
-    // }).then(function(response) {
-    //   console.log(response);
-    //   console.log("yay");
-    // });
-
-    $(function(){
-        var marvelAPI = 'https://gateway.marvel.com/v1/public/comics';
-        $.getJSON( marvelAPI, {
-            apikey: 'e8497bc6cb044233eb5ed6b04299d47e'
-          })
-            .done(function( response ) {
-              var results = response.data.results;
-              var resultsLen = results.length;
-              var output = '<ul>'; 
-
-              console.log(response)
-              console.log(results)
-              console.log(resultsLen)
-              
-              for(var i=0; i<resultsLen; i++){
-                if(results[i].images.length > 0) {
-                  var imgPath = results[i].images[0].path + '/standard_xlarge.' + results[i].images[0].extension;
-                  output += '<li><img src="' + imgPath + '"><br>'+results[i].title+'</li>';
-                }
-              }  
-              output += '</ul>'
-              $('#results').append(output);
-          });
-           
-        });

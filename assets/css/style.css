@@ -1,6 +1,5 @@
 button,
 div,
-form,
 input {
     margin: 10px;
 }
@@ -14,4 +13,29 @@ input {
 
 header {
     margin: 20px;
+}
+
+#buttons-view {
+    text-align: center;
+}
+
+form {
+    float: right;
+}
+
+h1 {
+    float: left;
+    margin: 10px 0;
+}
+body {
+    font-family: Anton;
+}
+
+p {
+    display: inline;
+}
+.item {
+    float: left;
+    background-color: red;
+    padding: 15px 15px 13px 5px;
 }
