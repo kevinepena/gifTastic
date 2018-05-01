@@ -82,7 +82,7 @@
 
                               var imgPath = results[i].images[0].path + '/standard_xlarge.' + results[i].images[0].extension;
                               output += '<li><img src="' + imgPath + '"><br>'+results[i].title+'</li>';
-                                                    ]
+                                                    
                           output += '</ul>'
                           $('#results').append(output);
                       });
@@ -110,5 +110,5 @@
 
             renderButtons();
 
-            console.log('yay2')
+            console.log('22yay')
 
