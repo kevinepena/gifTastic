@@ -82,7 +82,7 @@
 
                               var imgPath = results[0].thumbnail.path + '/standard_xlarge.' + results[0].thumbnail.extension;
                               console.log(imgPath)
-                              output += '<li><img src="' + imgPath + '"><br>'+results[i].title+'</li>';
+                              output += '<li><img src="' + imgPath + '"><br>'+results[0].title+'</li>';
                                                     
                           output += '</ul>'
                           $('#results').append(output);
