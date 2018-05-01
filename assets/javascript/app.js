@@ -110,5 +110,5 @@
 
             renderButtons();
 
-            console.log('yay')
+            console.log('yay2')
 
