@@ -75,15 +75,19 @@
                       })
                         .done(function( response ) {
                           var results = response.data.results;
+                          var output = '<ul>'; 
             
                           console.log(response)
                           console.log(results)
                           
-   
-                        //       var img = results[0].thumbnail.path
-                        //       var output = "<img src='" + img + "'><br>";
-
-                        //   $('#api-view').append(output);
+                          for(var i=0; i<resultsLen; i++){
+                            if(results[i].images.length > 0) {
+                              var imgPath = results[i].images[0].path + '/standard_xlarge.' + results[i].images[0].extension;
+                              output += '<li><img src="' + imgPath + '"><br>'+results[i].title+'</li>';
+                            }
+                          }  
+                          output += '</ul>'
+                          $('#results').append(output);
                       });
                        
                     });
@@ -109,5 +113,5 @@
 
             renderButtons();
 
-            console.log("maybe not")
+            console.log('yay')
 
