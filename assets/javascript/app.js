@@ -68,9 +68,10 @@
                 //-------------------------------------------
                 
                 $(function(){
-                    var marvelAPI = 'https://gateway.marvel.com/v1/public/characters?name=' + hero;
+                    var marvelAPI = 'https://gateway.marvel.com/v1/public/characters';
                     $.getJSON( marvelAPI, {
-                        apikey: 'e8497bc6cb044233eb5ed6b04299d47e'
+                        apikey: 'e8497bc6cb044233eb5ed6b04299d47e',
+                        name: hero
                       })
                         .done(function( response ) {
                           var results = response.data.results;
@@ -112,5 +113,5 @@
 
             renderButtons();
 
-            
+            console.log("yay")
 
