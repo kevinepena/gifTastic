@@ -43,4 +43,5 @@ p {
 .heroApi {
     margin: 0 auto;
     display: block;
+    clear: both;
 }
