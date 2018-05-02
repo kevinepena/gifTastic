@@ -88,6 +88,7 @@ function displayGifs() {
                 heroApi.attr("class", "heroApi");
                 heroApiDiv.append(heroApi);
                 $("#gif-view").prepend(heroApiDiv);
+                $("#gif-view").prepend("<br>");
             });
 
     });
@@ -114,4 +115,4 @@ $(document).on("click", ".indGif", gifState);
 renderButtons();
 
 
-console.log("maybe2.0")
+console.log("maybe3.0")

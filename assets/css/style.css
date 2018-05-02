@@ -39,3 +39,8 @@ p {
     background-color: red;
     padding: 15px 15px 13px 5px;
 }
+
+.heroApi {
+    margin: 0 auto;
+    display: block;
+}
