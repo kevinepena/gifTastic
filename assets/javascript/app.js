@@ -115,4 +115,4 @@ $(document).on("click", ".indGif", gifState);
 renderButtons();
 
 
-console.log("maybe3.0")
+console.log("maybe4.0")
