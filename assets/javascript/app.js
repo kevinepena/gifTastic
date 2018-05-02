@@ -83,7 +83,7 @@ function displayGifs() {
 
                 var imgPath = results[0].thumbnail.path + '/standard_xlarge.' + results[0].thumbnail.extension;
                 console.log(imgPath)
-                var wikiPath = results[0].urls[2].url;
+                var wikiPath = results[0].urls[1].url;
 
                 heroApiDiv.attr("href", wikiPath)
                 heroApi.attr("src", imgPath);
@@ -117,4 +117,4 @@ $(document).on("click", ".indGif", gifState);
 renderButtons();
 
 
-console.log("maybe4.0")
+console.log("maybe5.0")
