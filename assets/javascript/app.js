@@ -1,5 +1,5 @@
 // Initial array of gifs
-var gifs = ["Iron Man", "Hulk", "Captain America", "Thor"];
+var gifs = ["Spider-Man", "Hulk", "Captain America", "Thor"];
 
 function renderButtons() {
 
@@ -87,7 +87,7 @@ function displayGifs() {
                 heroApi.attr("src", imgPath);
                 heroApi.attr("class", "heroApi");
                 heroApiDiv.append(heroApi);
-                $("#api-view").prepend(heroApiDiv);
+                $("#gif-view").prepend(heroApiDiv);
             });
 
     });
@@ -114,4 +114,4 @@ $(document).on("click", ".indGif", gifState);
 renderButtons();
 
 
-console.log("maybe")
+console.log("maybe2.0")
