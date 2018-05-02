@@ -75,7 +75,7 @@ function displayGifs() {
         })
             .done(function (response) {
                 var results = response.data.results;
-                var heroApiDiv = $("<div class='marvel'>");
+                var heroApiDiv = $("<a class='marvel'>");
                 var heroApi = $("<img>");
 
                 console.log(response)
@@ -83,7 +83,9 @@ function displayGifs() {
 
                 var imgPath = results[0].thumbnail.path + '/standard_xlarge.' + results[0].thumbnail.extension;
                 console.log(imgPath)
+                var wikiPath = results[0].urls[2].url;
 
+                heroApiDiv.attr("href", wikiPath)
                 heroApi.attr("src", imgPath);
                 heroApi.attr("class", "heroApi");
                 heroApiDiv.append(heroApi);
